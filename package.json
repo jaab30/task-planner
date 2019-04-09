@@ -1,0 +1,24 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "Easy and Classy To Do List",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaab30/todolist.git"
+  },
+  "author": "Jorge Alvarez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaab30/todolist/issues"
+  },
+  "homepage": "https://github.com/jaab30/todolist#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "mysql": "^2.16.0"
+  }
+}
