@@ -1,0 +1,113 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{this.item}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{this.details}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h2>Enter Item To Do</h2>
+            <form>
+                <div class="form-group">
+                    <label for="itemInput">Enter "To Do" Item</label>
+                    <input type="text" class="form-control" id="itemInput" placeholder="ex. Play Music">
+                </div>
+                <div class="form-group row">
+                    <label for="dateTimeInput" class="col-5 col-form-label justify-right">Complete By</label>
+                    <div class="col-5">
+                        <input class="form-control" type="date" value="" id="dateTimeInput">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="moreDetailsText">More Details</label>
+                    <textarea class="form-control" id="moreDetailsText" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary submitBtn">Submit</button>
+            </form>
+
+
+        </div>
+
+        <div class="col">
+            <h2>Items To Do:</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Complete By </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each item}}
+                    {{#unless this.completed}}
+                    <tr>
+                        <th scope="row">{{this.id}}</th>
+                        <td>{{this.item}}</td>
+                        <td>{{moment date=this.to_be_completed_by add="days" amount="1" format="MMMM, Do
+                            YYYY"}}</td>
+                        </td>
+                        <td><button type="button" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fas fa-info-circle infoBtn" data-toggle="modal" data-target="#exampleModalLong"
+                                    value="{{this.id}}"></i>
+                            </button></td>
+                        <td><i class="fas fa-check-square checkBtn" value="{{this.id}}"></i></td>
+                        <td><i class="fas fa-trash-alt delBtn" value="{{this.id}}"></i></td>
+
+                    </tr>
+                    {{/unless}}
+                    {{/each}}
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col">
+            <h2>Completed Items</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Completed On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each item}}
+                    {{#if this.completed}}
+                    <tr>
+                        <th scope="row">{{this.id}}</th>
+                        <td><del>{{this.item}}</del></td>
+                        <td>{{moment this.updatedAt "MMMM, Do YYYY"}}</td>
+                        <td><i class="fas fa-trash-alt delBtn" value="{{this.id}}"></i></td>
+                    </tr>
+                    {{/if}}
+                    {{/each}}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
