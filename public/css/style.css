@@ -1,0 +1,70 @@
+
+Body {
+    background-image: url("../images/gplaypattern.png");
+
+}
+
+h1 {
+    font-family: 'Just Another Hand', cursive;
+    font-size: 3em;
+}
+h2 {
+    font-family: 'Just Another Hand', cursive;
+    font-size: 2.5em;
+
+}
+
+label {
+    font-family: 'Exo 2', sans-serif;
+}
+
+table {
+    counter-reset: 0;
+    font-family: 'Exo 2', sans-serif;
+    /* counter-reset: rowNumber; */
+  }
+  
+  table tr {
+    counter-increment: rowNumber;
+  }
+  
+  table tr td:first-child::before {
+    content: counter(rowNumber);
+    font-weight: bold;
+    /* min-width: 1em;
+    margin-right: 0.5em; */
+  }
+
+  .infoBtn {
+    background: none;
+    border: none; 
+  }
+
+  .infoBtn:hover {
+    color: none;
+  }
+  .checkBtn:hover {
+    cursor: pointer;
+    
+  }
+  .delBtn:hover {
+    cursor: pointer;
+ 
+  }
+  .infoBtn:active {
+    font-size: 1.1em;
+  }
+  .checkBtn:active {
+    font-size: 1.1em;
+  }
+  .delBtn:active {
+    font-size: 1.1em;
+  }
+.submitBtn{
+    width: 100%;
+}
+
+
+/* font-family: 'Kalam', cursive;
+font-family: 'Just Another Hand', cursive;
+font-family: 'Exo 2', sans-serif; */

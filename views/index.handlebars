@@ -25,53 +25,59 @@
 
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <h2>Enter Item To Do</h2>
+    <div class="row mb-5 mt-3">
+        <div class="col-md-5 mx-auto">
+            <h1 class="text-center mb-3">My To Do List</h1>
+            {{!-- <h2 class="text-center">Enter Item To Do</h2> --}}
             <form>
                 <div class="form-group">
-                    <label for="itemInput">Enter "To Do" Item</label>
+                    <label class="font-weight-bold" for="itemInput">Enter "To Do" Item</label>
                     <input type="text" class="form-control" id="itemInput" placeholder="ex. Play Music">
                 </div>
                 <div class="form-group row">
-                    <label for="dateTimeInput" class="col-5 col-form-label justify-right">Complete By</label>
+                    <label for="dateTimeInput" class="col-md-3 col-form-label font-weight-bold">Complete by:</label>
                     <div class="col-5">
                         <input class="form-control" type="date" value="" id="dateTimeInput">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="moreDetailsText">More Details</label>
+                    <label class="font-weight-bold" for="moreDetailsText">More Details</label>
                     <textarea class="form-control" id="moreDetailsText" rows="3"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary submitBtn">Submit</button>
+                <button type="submit" class="btn btn-warning text-white submitBtn">Add Item</button>
             </form>
         </div>
-
-        <div class="col">
-            <h2>Items To Do:</h2>
-            <table class="table">
-                <thead>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+            <h2 class="text-center">Items To Do:</h2>
+            <table class="table table-sm table-striped">
+                <thead class="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Complete By </th>
+                        <th class="text-center" style="width: 10%" scope="col-1">#</th>
+                        <th style="width: 60%" scope="col">Description</th>
+                        <th style="width: 40%" scope="col">Complete By </th>
+                        <th class="text-center"></th>
+                        <th class="text-center"></th>
+                        <th class="text-center"></th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each item}}
                     {{#unless this.completed}}
                     <tr>
-                        <th scope="row">{{inc @index}}</th>
+                        <td class="text-center" scope="row"></td>
                         <td>{{this.item}}</td>
                         <td>{{moment date=this.to_be_completed_by add="days" amount="1" format="MMMM, Do
                             YYYY"}}</td>
                         </td>
-                        <td><button class="infoBtn" type="button" data-toggle="modal" data-target="#exampleModal" value="{{this.id}}">
-                                <i class="fas fa-info-circle"></i>
+                        <td class="text-center"><button class="infoBtn" type="button" data-toggle="modal" data-target="#exampleModal"
+                                value="{{this.id}}">
+                                <i class="fas fa-info-circle text-primary"></i>
                             </button>
                         </td>
-                        <td><i class="fas fa-check-square checkBtn" value="{{this.id}}"></i></td>
-                        <td><i class="fas fa-trash-alt delBtn" value="{{this.id}}"></i></td>
+                        <td class="text-center"><i class="fas fa-check-square text-success checkBtn" value="{{this.id}}"></i></td>
+                        <td class="text-center"><i class="fas fa-trash-alt text-danger delBtn" value="{{this.id}}"></i></td>
 
                     </tr>
                     {{/unless}}
@@ -80,24 +86,25 @@
             </table>
 
         </div>
-        <div class="col">
-            <h2>Completed Items</h2>
-            <table class="table">
-                <thead>
+        <div class="col-lg-5 mx-auto">
+            <h2 class="text-center">Completed Items</h2>
+            <table class="table table-sm table-striped">
+                <thead class="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Completed On</th>
+                        <th class="text-center" style="width: 10%" scope="col">#</th>
+                        <th style="width: 60%" scope="col">Description</th>
+                        <th style="width: 30%" scope="col">Completed On</th>
+                        <th class="text-center"></th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each item}}
                     {{#if this.completed}}
                     <tr>
-                        <th scope="row">{{inc2 @index}}</th>
-                        <td><del>{{this.item}}</del></td>
-                        <td>{{moment this.updatedAt "MMMM, Do YYYY"}}</td>
-                        <td><i class="fas fa-trash-alt delBtn" value="{{this.id}}"></i></td>
+                        <td class="text-center" scope="row"></td>
+                        <td class="text-success"><del>{{this.item}}</del></td>
+                        <td class="text-success">{{moment this.updatedAt "MMMM, Do YYYY"}}</td>
+                        <td class="text-center"><i class="fas fa-trash-alt text-danger delBtn" value="{{this.id}}"></i></td>
                     </tr>
                     {{/if}}
                     {{/each}}

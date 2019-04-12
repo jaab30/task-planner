@@ -6,7 +6,7 @@ var router = express.Router();
 router.get("/", function (req, res) {
     toDoItem.findAll({})
         .then(function (fromDB) {
-            // res.json(fromDB)
+
             var toDoDisplay = {
                 item: fromDB
             }
