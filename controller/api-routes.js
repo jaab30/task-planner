@@ -6,7 +6,6 @@ var router = express.Router();
 router.get("/", function (req, res) {
     toDoItem.findAll({})
         .then(function (fromDB) {
-            console.log(fromDB)
             // res.json(fromDB)
             var toDoDisplay = {
                 item: fromDB
@@ -43,6 +42,20 @@ router.post("/additem", function (req, res) {
 router.put("/checkItem/:id", function (req, res) {
     toDoItem.update({
         completed: req.body.completed
+    }, {
+            where: {
+                id: req.params.id
+            }
+        }).then(function () {
+            res.end()
+        })
+
+})
+router.put("/updateItem/:id", function (req, res) {
+    toDoItem.update({
+        item: req.body.itemTitle,
+        details: req.body.itemDetails,
+        to_be_completed_by: req.body.itemDate
     }, {
             where: {
                 id: req.params.id

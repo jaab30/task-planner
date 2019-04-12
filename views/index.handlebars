@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Completed by: <span class="itemDetailDate"></span></p>
+                <p>Complete by: <br><span class="itemDetailDate"></span></p>
             </div>
             <div class="modal-body itemDetailDetails">
             </div>
@@ -22,10 +22,6 @@
         </div>
     </div>
 </div>
-
-
-
-
 
 
 <div class="container-fluid">
@@ -47,11 +43,8 @@
                     <label for="moreDetailsText">More Details</label>
                     <textarea class="form-control" id="moreDetailsText" rows="3"></textarea>
                 </div>
-
                 <button type="submit" class="btn btn-primary submitBtn">Submit</button>
             </form>
-
-
         </div>
 
         <div class="col">
@@ -101,7 +94,7 @@
                     {{#each item}}
                     {{#if this.completed}}
                     <tr>
-                        <th scope="row">{{@index}}</th>
+                        <th scope="row">{{inc2 @index}}</th>
                         <td><del>{{this.item}}</del></td>
                         <td>{{moment this.updatedAt "MMMM, Do YYYY"}}</td>
                         <td><i class="fas fa-trash-alt delBtn" value="{{this.id}}"></i></td>

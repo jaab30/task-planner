@@ -6,6 +6,7 @@ $(".submitBtn").on("click", function (event) {
         itemText: $("#itemInput").val(),
         completeBy: $("#dateTimeInput").val(),
         moreDetails: $("#moreDetailsText").val()
+
     }
     console.log(newItem)
     $.post("/additem", newItem)
@@ -23,8 +24,9 @@ $(".infoBtn").on("click", function () {
         console.log(data[0])
         $(".itemDetailTitle").text(data[0].item)
         $(".itemDetailDetails").text(data[0].details)
-        $(".itemDetailDate").text(moment(data[0].to_be_completed_by).format("MMMM Do YYYY"))
+        $(".itemDetailDate").text(moment(data[0].to_be_completed_by).add(1, 'days').format("MMMM Do YYYY"))
         $(".editBtn").attr("value", data[0].id)
+        $(".saveBtn").attr("value", data[0].id)
     })
 })
 
@@ -34,12 +36,32 @@ $(".editBtn").on("click", function () {
     $.get("/view/" + itemId, function (data) {
 
         console.log(data[0])
-        $(".itemDetailTitle").html("<input type='text' class='form-control' size='50' value='" + data[0].item + "'>")
-        $(".itemDetailDetails").html("<textarea class='form-control' rows='3'>" + data[0].details + "</textarea>")
-        $(".itemDetailDate").html("<input class='form-control' type='date' value='" + moment(data[0].to_be_completed_by).format("YYYY-MM-DD") + "' id='dateTimeInput'>")
-
-
+        $(".itemDetailTitle").html("<input type='text' class='form-control itemDetailTitleInput' size='50' value='" + data[0].item + "'>")
+        $(".itemDetailDetails").html("<textarea class='form-control itemDetailDetailsInput' rows='3'>" + data[0].details + "</textarea>")
+        $(".itemDetailDate").html("<input class='form-control itemDetailDateInput' type='date' value='" + moment(data[0].to_be_completed_by).format("YYYY-MM-DD") + "' id='dateTimeInput'>")
     })
+})
+
+
+$(".saveBtn").on("click", function () {
+    itemId = $(this).attr("value")
+    var itemTitleInput = $(".itemDetailTitleInput").val()
+    var itemDetailsInput = $(".itemDetailDetailsInput").val()
+    var itemDateInput = $(".itemDetailDateInput").val()
+
+    var updateItem = {
+        itemTitle: itemTitleInput,
+        itemDetails: itemDetailsInput,
+        itemDate: itemDateInput
+    }
+    $.ajax({
+        method: "PUT",
+        url: "/updateItem/" + itemId,
+        data: updateItem
+    })
+        .then(function () {
+            location.reload();
+        })
 })
 
 $(".checkBtn").on("click", function () {
@@ -55,8 +77,8 @@ $(".checkBtn").on("click", function () {
         .then(function () {
             location.reload();
         })
-
 })
+
 $(".delBtn").on("click", function () {
     itemId = $(this).attr("value")
     $.ajax({
@@ -66,5 +88,4 @@ $(".delBtn").on("click", function () {
         .then(function () {
             location.reload();
         })
-
 })

@@ -14,6 +14,7 @@ app.set("view engine", "handlebars");
 var Handlebars = require("handlebars");
 var MomentHandler = require("handlebars.moment");
 MomentHandler.registerHelpers(Handlebars);
+
 Handlebars.registerHelper("inc", function (value, options) {
     return parseInt(value) + 1;
 });
