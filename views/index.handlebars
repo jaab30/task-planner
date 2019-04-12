@@ -3,17 +3,21 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{this.item}}</h5>
+                <h5 class="modal-title itemDetailTitle" id="exampleModalLabel"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                {{this.details}}
+                <p>Completed by: <span class="itemDetailDate"></span></p>
+            </div>
+            <div class="modal-body itemDetailDetails">
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-primary editBtn">Edit</button>
+                <button type="button" class="btn btn-primary saveBtn">Save changes</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+
             </div>
         </div>
     </div>
@@ -64,15 +68,15 @@
                     {{#each item}}
                     {{#unless this.completed}}
                     <tr>
-                        <th scope="row">{{this.id}}</th>
+                        <th scope="row">{{inc @index}}</th>
                         <td>{{this.item}}</td>
                         <td>{{moment date=this.to_be_completed_by add="days" amount="1" format="MMMM, Do
                             YYYY"}}</td>
                         </td>
-                        <td><button type="button" data-toggle="modal" data-target="#exampleModal">
-                                <i class="fas fa-info-circle infoBtn" data-toggle="modal" data-target="#exampleModalLong"
-                                    value="{{this.id}}"></i>
-                            </button></td>
+                        <td><button class="infoBtn" type="button" data-toggle="modal" data-target="#exampleModal" value="{{this.id}}">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </td>
                         <td><i class="fas fa-check-square checkBtn" value="{{this.id}}"></i></td>
                         <td><i class="fas fa-trash-alt delBtn" value="{{this.id}}"></i></td>
 
@@ -97,7 +101,7 @@
                     {{#each item}}
                     {{#if this.completed}}
                     <tr>
-                        <th scope="row">{{this.id}}</th>
+                        <th scope="row">{{@index}}</th>
                         <td><del>{{this.item}}</del></td>
                         <td>{{moment this.updatedAt "MMMM, Do YYYY"}}</td>
                         <td><i class="fas fa-trash-alt delBtn" value="{{this.id}}"></i></td>

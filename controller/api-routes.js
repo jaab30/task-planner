@@ -14,6 +14,18 @@ router.get("/", function (req, res) {
             res.render("index", toDoDisplay);
         })
 })
+router.get("/view/:id", function (req, res) {
+    console.log(req.params.id)
+    toDoItem.findAll({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(function (fromDB) {
+
+            res.json(fromDB);
+        })
+})
 
 router.post("/additem", function (req, res) {
     console.log(req.body)
