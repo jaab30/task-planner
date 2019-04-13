@@ -9,9 +9,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Complete by: <br><span class="itemDetailDate"></span></p>
+                <p><strong>Complete by: </strong><br><span class="itemDetailDate"></span></p>
             </div>
-            <div class="modal-body itemDetailDetails">
+            <div class="modal-body">
+                <p><strong>Details: </strong><br></p>
+                <p class="itemDetailDetails"></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary editBtn">Edit</button>
@@ -30,19 +32,33 @@
             <h1 class="text-center mb-3">My To Do List</h1>
             {{!-- <h2 class="text-center">Enter Item To Do</h2> --}}
             <form>
-                <div class="form-group">
-                    <label class="font-weight-bold" for="itemInput">Enter "To Do" Item</label>
-                    <input type="text" class="form-control" id="itemInput" placeholder="ex. Play Music">
+                <div class="form-group user-input-wrp">
+                    {{!-- <label class="font-weight-bold" for="itemInput">Enter "To Do" Item</label> --}}
+                    {{!-- <input type="text" class="form-control inputText" id="itemInput" placeholder="ex. Play Music">
+                    --}}
+                    <br />
+                    <input type="text" class="inputText" id="itemInput" required />
+                    <span class="floating-label font-weight-bold spanText">Enter "To Do" Item</span>
+                    <div class="row">
+                        <div class="col-md-12 inputItemValidation"></div>
+                    </div>
                 </div>
+                {{!-- <div class="inputItemValidation"></div> --}}
                 <div class="form-group row">
                     <label for="dateTimeInput" class="col-md-3 col-form-label font-weight-bold">Complete by:</label>
                     <div class="col-5">
-                        <input class="form-control" type="date" value="" id="dateTimeInput">
+                        <input class="form-control inputDate" type="date" value="" id="dateTimeInput">
+                        <div class="row">
+                            <div class="col-md-12 inputDateValidation"></div>
+                        </div>
                     </div>
+
+
                 </div>
+
                 <div class="form-group">
                     <label class="font-weight-bold" for="moreDetailsText">More Details</label>
-                    <textarea class="form-control" id="moreDetailsText" rows="3"></textarea>
+                    <textarea class="form-control inputDetails" id="moreDetailsText" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-warning text-white submitBtn">Add Item</button>
             </form>

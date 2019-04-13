@@ -2,19 +2,26 @@
 $(".submitBtn").on("click", function (event) {
     event.preventDefault();
 
-    newItem = {
-        itemText: $("#itemInput").val(),
-        completeBy: $("#dateTimeInput").val(),
-        moreDetails: $("#moreDetailsText").val()
+    if ($("#itemInput").val() === "") {
+        $(".inputItemValidation").text("Please enter a To Do Item")
 
+    } else if ($("#dateTimeInput").val() === "") {
+        $(".inputDateValidation").text("Please enter a Date")
+    } else {
+
+        newItem = {
+            itemText: $("#itemInput").val(),
+            completeBy: $("#dateTimeInput").val(),
+            moreDetails: $("#moreDetailsText").val()
+
+        }
+        console.log(newItem.complete)
+        $.post("/additem", newItem)
+            .then(function () {
+                console.log("Item Inserted")
+                location.reload()
+            })
     }
-    console.log(newItem)
-    $.post("/additem", newItem)
-        .then(function () {
-            console.log("Item Inserted")
-            location.reload()
-        })
-
 })
 
 $(".infoBtn").on("click", function () {
@@ -38,7 +45,7 @@ $(".editBtn").on("click", function () {
         console.log(data[0])
         $(".itemDetailTitle").html("<input type='text' class='form-control itemDetailTitleInput' size='50' value='" + data[0].item + "'>")
         $(".itemDetailDetails").html("<textarea class='form-control itemDetailDetailsInput' rows='3'>" + data[0].details + "</textarea>")
-        $(".itemDetailDate").html("<input class='form-control itemDetailDateInput' type='date' value='" + moment(data[0].to_be_completed_by).format("YYYY-MM-DD") + "' id='dateTimeInput'>")
+        $(".itemDetailDate").html("<input class='form-control itemDetailDateInput' type='date' value='" + moment(data[0].to_be_completed_by).add(1, 'days').format("YYYY-MM-DD") + "' id='dateTimeInput'>")
     })
 })
 

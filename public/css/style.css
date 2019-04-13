@@ -43,6 +43,9 @@ table {
   .infoBtn:hover {
     color: none;
   }
+  .infoBtn:focus {
+    outline: none;
+  }
   .checkBtn:hover {
     cursor: pointer;
     
@@ -62,6 +65,79 @@ table {
   }
 .submitBtn{
     width: 100%;
+}
+
+p {
+  margin:0
+}
+
+
+.inputDate {
+  font-family: 'Exo 2', sans-serif;
+  /* background: none; */
+  width: 80%;
+  /* margin-left: -40px; */
+}
+.form-control:focus {
+    border-color: #fac85b;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 5px rgba(243, 191, 22, 0.5);
+
+}
+
+.inputDateValidation{
+  font-family: 'Exo 2', sans-serif;
+  font-size: .8em;
+  color: red;
+  padding: 5px 0 0 20px;
+  margin: 0;
+}
+
+.inputDetails {
+  font-family: 'Exo 2', sans-serif;
+}
+
+.user-input-wrp {
+	position: relative;
+	width: 100%;
+}
+.spanText {
+  font-family: 'Exo 2', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+.inputItemValidation{
+  font-family: 'Exo 2', sans-serif;
+  font-size: .8em;
+  color: red;
+  padding: 5px 0 0 15px;
+  margin: 0;
+}
+.user-input-wrp .inputText{
+  width: 100%;
+  background: none;
+  font-family: 'Exo 2', sans-serif;
+	outline: none;
+	border:none;
+	border-bottom: 1px solid #777;
+ 	box-shadow: none !important;
+}
+.user-input-wrp .inputText:focus{
+	border-color: none;
+	border-width: medium medium 2px;
+}
+.user-input-wrp .floating-label {
+	position: absolute;
+	pointer-events: none;
+	top: 18px;
+	left: 0px;
+	transition: 0.2s ease all;
+}
+.user-input-wrp input:focus ~ .floating-label,
+.user-input-wrp input:not(:focus):valid ~ .floating-label{
+	top: 0px;
+	left: 0px;
+	font-size: 13px;
+	opacity: 1;
 }
 
 
