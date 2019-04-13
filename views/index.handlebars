@@ -88,11 +88,13 @@
                         </td>
                         <td class="text-center"><button class="infoBtn" type="button" data-toggle="modal" data-target="#exampleModal"
                                 value="{{this.id}}">
-                                <i class="fas fa-info-circle text-primary"></i>
+                                <i class="fas fa-info-circle text-primary" title="View Item's Details"></i>
                             </button>
                         </td>
-                        <td class="text-center"><i class="fas fa-check-square text-success checkBtn" value="{{this.id}}"></i></td>
-                        <td class="text-center"><i class="fas fa-trash-alt text-danger delBtn" value="{{this.id}}"></i></td>
+                        <td class="text-center"><i class="fas fa-check-square text-success checkBtn" value="{{this.id}}"
+                                title="Check Item Done"></i></td>
+                        <td class="text-center"><i class="fas fa-trash-alt text-danger delBtn" value="{{this.id}}"
+                                title="Remove Item"></i></td>
 
                     </tr>
                     {{/unless}}
@@ -119,7 +121,8 @@
                         <td class="text-center" scope="row"></td>
                         <td class="text-success"><del>{{this.item}}</del></td>
                         <td class="text-success">{{moment this.updatedAt "MMMM, Do YYYY"}}</td>
-                        <td class="text-center"><i class="fas fa-trash-alt text-danger delBtn" value="{{this.id}}"></i></td>
+                        <td class="text-center"><i class="fas fa-trash-alt text-danger delBtn" value="{{this.id}}"
+                                title="Remove Item"></i></td>
                     </tr>
                     {{/if}}
                     {{/each}}
