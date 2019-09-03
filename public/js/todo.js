@@ -17,7 +17,7 @@ $(".submitBtn").on("click", function (event) {
 
         }
         // send post request with data information to backend
-        $.post("/additem", newItem)
+        $.post("/api/additem", newItem)
             .then(function () {
                 console.log("Item Inserted")
                 location.reload()
@@ -27,7 +27,7 @@ $(".submitBtn").on("click", function (event) {
 //view details from each todo list item
 $(".infoBtn").on("click", function () {
     itemId = $(this).attr("value")
-    $.get("/view/" + itemId, function (data) {
+    $.get("/api/view/" + itemId, function (data) {
         $(".itemDetailTitle").text(data[0].item)
         $(".itemDetailDetails").text(data[0].details)
         $(".itemDetailDate").text(moment(data[0].to_be_completed_by).add(1, 'days').format("MMMM Do YYYY"))
@@ -38,7 +38,7 @@ $(".infoBtn").on("click", function () {
 //edit an item for the todo list
 $(".editBtn").on("click", function () {
     itemId = $(this).attr("value")
-    $.get("/view/" + itemId, function (data) {
+    $.get("/api/view/" + itemId, function (data) {
         $(".itemDetailTitle").html("<input type='text' class='form-control itemDetailTitleInput' size='50' value='" + data[0].item + "'>")
         $(".itemDetailDetails").html("<textarea class='form-control itemDetailDetailsInput' rows='3'>" + data[0].details + "</textarea>")
         $(".itemDetailDate").html("<input class='form-control itemDetailDateInput' type='date' value='" + moment(data[0].to_be_completed_by).add(1, 'days').format("YYYY-MM-DD") + "' id='dateTimeInput'>")
@@ -59,7 +59,7 @@ $(".saveBtn").on("click", function () {
     }
     $.ajax({
         method: "PUT",
-        url: "/updateItem/" + itemId,
+        url: "/api/updateItem/" + itemId,
         data: updateItem
     })
         .then(function () {
@@ -74,7 +74,7 @@ $(".checkBtn").on("click", function () {
     }
     $.ajax({
         method: "PUT",
-        url: "/checkItem/" + itemId,
+        url: "/api/checkItem/" + itemId,
         data: editItem
     })
         .then(function () {
@@ -86,7 +86,7 @@ $(".delBtn").on("click", function () {
     itemId = $(this).attr("value")
     $.ajax({
         method: "DELETE",
-        url: "/deleteItem/" + itemId
+        url: "/api/deleteItem/" + itemId
     })
         .then(function () {
             location.reload();
