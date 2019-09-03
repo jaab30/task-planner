@@ -1,5 +1,6 @@
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -30,12 +31,8 @@
     <div class="row mb-5 mt-3">
         <div class="col-md-5 mx-auto">
             <h1 class="text-center mb-3">My To Do List</h1>
-            {{!-- <h2 class="text-center">Enter Item To Do</h2> --}}
             <form>
                 <div class="form-group user-input-wrp">
-                    {{!-- <label class="font-weight-bold" for="itemInput">Enter "To Do" Item</label> --}}
-                    {{!-- <input type="text" class="form-control inputText" id="itemInput" placeholder="ex. Play Music">
-                    --}}
                     <br />
                     <input type="text" class="inputText" id="itemInput" required />
                     <span class="floating-label font-weight-bold spanText">Enter "To Do" Item</span>
@@ -86,8 +83,8 @@
                         <td>{{moment date=this.to_be_completed_by add="days" amount="1" format="MMMM, Do
                             YYYY"}}</td>
                         </td>
-                        <td class="text-center"><button class="infoBtn" type="button" data-toggle="modal" data-target="#exampleModal"
-                                value="{{this.id}}">
+                        <td class="text-center"><button class="infoBtn" type="button" data-toggle="modal"
+                                data-target="#exampleModal" value="{{this.id}}">
                                 <i class="fas fa-info-circle text-primary" title="View Item's Details"></i>
                             </button>
                         </td>
