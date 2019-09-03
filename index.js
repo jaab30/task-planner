@@ -15,12 +15,12 @@ var Handlebars = require("handlebars");
 var MomentHandler = require("handlebars.moment");
 MomentHandler.registerHelpers(Handlebars);
 
-Handlebars.registerHelper("inc", function (value, options) {
-    return parseInt(value) + 1;
-});
-Handlebars.registerHelper("inc2", function (value, options) {
-    return parseInt(value) + 1;
-});
+// Handlebars.registerHelper("inc", function (value, options) {
+//     return parseInt(value) + 1;
+// });
+// Handlebars.registerHelper("inc2", function (value, options) {
+//     return parseInt(value) + 1;
+// });
 
 var routes = require("./controller/api-routes.js");
 app.use(routes)
