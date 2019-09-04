@@ -1,18 +1,21 @@
-var Sequelize = require("sequelize");
+// var Sequelize = require("sequelize");
 
-var sequelize = require("../config/connections.js");
+// var sequelize = require("../config/connections.js");
+module.exports = function (sequelize, DataTypes) {
+    var ToDoList = sequelize.define("todoitem", {
+        item: DataTypes.STRING,
+        details: DataTypes.TEXT,
+        to_be_completed_by: DataTypes.DATE,
+        completed: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
+            defaultValue: false
+        }
+    });
+    return ToDoList;
 
-var ToDoList = sequelize.define("todoitem", {
-    item: Sequelize.STRING,
-    details: Sequelize.TEXT,
-    to_be_completed_by: Sequelize.DATE,
-    completed: {
-        type: Sequelize.BOOLEAN,
-        allowNull: true,
-        defaultValue: false
-    }
-})
+}
 
-ToDoList.sync();
+// ToDoList.sync();
 
-module.exports = ToDoList;
+// module.exports = ToDoList;

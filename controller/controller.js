@@ -1,11 +1,11 @@
-var toDoItem = require("../models/todolist.js");
-
+// var toDoItem = require("../models/todolist.js");
+var db = require("../models")
 
 module.exports = {
     findAll: function (req, res) {
-        toDoItem.findAll({})
+        console.log(db.todoitem)
+        db.todoitem.findAll({})
             .then(function (fromDB) {
-
                 var toDoDisplay = {
                     item: fromDB
                 }
@@ -13,8 +13,7 @@ module.exports = {
             })
     },
     viewItem: function (req, res) {
-        console.log("controller")
-        toDoItem.findAll({
+        db.todoitem.findAll({
             where: {
                 id: req.params.id
             }
@@ -24,7 +23,7 @@ module.exports = {
             })
     },
     addItem: function (req, res) {
-        toDoItem.create({
+        db.todoitem.create({
             item: req.body.itemText,
             to_be_completed_by: req.body.completeBy,
             details: req.body.moreDetails
@@ -34,7 +33,7 @@ module.exports = {
             })
     },
     checkItem: function (req, res) {
-        toDoItem.update({
+        db.todoitem.update({
             completed: req.body.completed
         }, {
                 where: {
@@ -45,7 +44,7 @@ module.exports = {
             })
     },
     updateItem: function (req, res) {
-        toDoItem.update({
+        db.todoitem.update({
             item: req.body.itemTitle,
             details: req.body.itemDetails,
             to_be_completed_by: req.body.itemDate
@@ -58,7 +57,7 @@ module.exports = {
             })
     },
     deleteItem: function (req, res) {
-        toDoItem.destroy({
+        db.todoitem.destroy({
             where: {
                 id: req.params.id
             }
