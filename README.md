@@ -5,8 +5,8 @@ Simply create a ".env" file and enter your database credentials and it is ready 
 
 .env example file:
 
-DB_USERNAME=***enter the username for your database"
-DB_PASSWORD=***enter the password for your database"
+DB_USERNAME=***enter the username for your database"<br>
+DB_PASSWORD=***enter the password for your database"<br>
 DB_DATABASE=***enter the name for your database"
 
 
