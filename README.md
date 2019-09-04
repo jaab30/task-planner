@@ -1,7 +1,7 @@
 # Simple and professional Todo List
 
 This web application is a simple but very professional looking Todo List. Fully CRUD using NodeJs, Express, Handlebars and Sequelized (MySQL). Use MVC model folder structure. 
-Simply create a ".env" file and enter your database credentials and it is ready to use.
+Simply, enter your database credentials in the ".env" file and it is ready to use.
 
 .env example file:
 
