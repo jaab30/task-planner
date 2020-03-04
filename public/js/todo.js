@@ -18,10 +18,7 @@ $(".submitBtn").on("click", function (event) {
         }
         // send post request with data information to backend
         $.post("/api/additem", newItem)
-            .then(function () {
-                console.log("Item Inserted")
-                location.reload()
-            })
+            .then(() => location.reload())
     }
 })
 //view details from each todo list item
@@ -62,9 +59,7 @@ $(".saveBtn").on("click", function () {
         url: "/api/updateItem/" + itemId,
         data: updateItem
     })
-        .then(function () {
-            location.reload();
-        })
+        .then(() => location.reload())
 })
 // update todo list item to "done" when checked
 $(".checkBtn").on("click", function () {
@@ -77,9 +72,7 @@ $(".checkBtn").on("click", function () {
         url: "/api/checkItem/" + itemId,
         data: editItem
     })
-        .then(function () {
-            location.reload();
-        })
+        .then(() => location.reload())
 })
 // delete item from todo list
 $(".delBtn").on("click", function () {
@@ -88,7 +81,5 @@ $(".delBtn").on("click", function () {
         method: "DELETE",
         url: "/api/deleteItem/" + itemId
     })
-        .then(function () {
-            location.reload();
-        })
+        .then(() => location.reload())
 })

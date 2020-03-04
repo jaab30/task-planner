@@ -5,7 +5,7 @@ module.exports = {
     findAll: function (req, res) {
         console.log(db.todoitem)
         db.todoitem.findAll({})
-            .then(function (fromDB) {
+            .then(fromDB => {
                 var toDoDisplay = {
                     item: fromDB
                 }
@@ -17,20 +17,14 @@ module.exports = {
             where: {
                 id: req.params.id
             }
-        })
-            .then(function (fromDB) {
-                res.json(fromDB);
-            })
+        }).then(fromDB => res.json(fromDB))
     },
     addItem: function (req, res) {
         db.todoitem.create({
             item: req.body.itemText,
             to_be_completed_by: req.body.completeBy,
             details: req.body.moreDetails
-        })
-            .then(function () {
-                res.end()
-            })
+        }).then(() => res.end())
     },
     checkItem: function (req, res) {
         db.todoitem.update({
@@ -39,9 +33,7 @@ module.exports = {
                 where: {
                     id: req.params.id
                 }
-            }).then(function () {
-                res.end()
-            })
+        }).then(() => res.end())
     },
     updateItem: function (req, res) {
         db.todoitem.update({
@@ -52,18 +44,14 @@ module.exports = {
                 where: {
                     id: req.params.id
                 }
-            }).then(function () {
-                res.end()
-            })
+        }).then(() => res.end())
     },
     deleteItem: function (req, res) {
         db.todoitem.destroy({
             where: {
                 id: req.params.id
             }
-        }).then(function () {
-            res.end()
-        })
+        }).then(() => res.end())
     }
 
 }

@@ -1,6 +1,4 @@
-// var Sequelize = require("sequelize");
 
-// var sequelize = require("../config/connections.js");
 module.exports = function (sequelize, DataTypes) {
     var ToDoList = sequelize.define("todoitem", {
         item: DataTypes.STRING,
@@ -13,9 +11,4 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
     return ToDoList;
-
 }
-
-// ToDoList.sync();
-
-// module.exports = ToDoList;

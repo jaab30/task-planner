@@ -8,8 +8,6 @@ router.route("/checkItem/:id").put(controller.checkItem);
 router.route("/updateItem/:id").put(controller.updateItem);
 router.route("/deleteItem/:id").delete(controller.deleteItem);
 
-
-
 module.exports = router;
 
 

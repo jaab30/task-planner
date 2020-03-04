@@ -1,7 +1,6 @@
 
 Body {
     background-image: url("../images/gplaypattern.png");
-
 }
 
 h1 {
@@ -11,7 +10,6 @@ h1 {
 h2 {
     font-family: 'Just Another Hand', cursive;
     font-size: 2.5em;
-
 }
 
 label {
@@ -21,7 +19,6 @@ label {
 table {
     counter-reset: 0;
     font-family: 'Exo 2', sans-serif;
-    /* counter-reset: rowNumber; */
   }
   
   table tr {
@@ -31,8 +28,6 @@ table {
   table tr td:first-child::before {
     content: counter(rowNumber);
     font-weight: bold;
-    /* min-width: 1em;
-    margin-right: 0.5em; */
   }
 
   .infoBtn {
@@ -74,14 +69,11 @@ p {
 
 .inputDate {
   font-family: 'Exo 2', sans-serif;
-  /* background: none; */
   width: 80%;
-  /* margin-left: -40px; */
 }
 .form-control:focus {
     border-color: #fac85b;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 5px rgba(243, 191, 22, 0.5);
-
 }
 
 .inputDateValidation{
