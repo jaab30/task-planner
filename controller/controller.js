@@ -1,12 +1,12 @@
-// var toDoItem = require("../models/todolist.js");
-var db = require("../models")
+
+const db = require("../models")
 
 module.exports = {
     findAll: function (req, res) {
         console.log(db.todoitem)
         db.todoitem.findAll({})
             .then(fromDB => {
-                var toDoDisplay = {
+                const toDoDisplay = {
                     item: fromDB
                 }
                 res.render("index", toDoDisplay);

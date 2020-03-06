@@ -1,12 +1,12 @@
-var express = require("express");
-var router = express.Router();
-var controller = require("../controller/controller");
+const express = require("express");
+const router = express.Router();
+const controller = require("../controller/controller");
 
-router.route("/view/:id").get(controller.viewItem);
-router.route("/additem").post(controller.addItem);
-router.route("/checkItem/:id").put(controller.checkItem);
-router.route("/updateItem/:id").put(controller.updateItem);
-router.route("/deleteItem/:id").delete(controller.deleteItem);
+router.get("/view/:id", controller.viewItem);
+router.post("/additem", controller.addItem);
+router.put("/checkItem/:id", controller.checkItem);
+router.put("/updateItem/:id", controller.updateItem);
+router.delete("/deleteItem/:id", controller.deleteItem);
 
 module.exports = router;
 

@@ -1,22 +1,22 @@
-var express = require("express");
-var app = express();
+const express = require("express");
+const app = express();
 require("dotenv").config();
-var db = require("./models")
+const db = require("./models")
 
-var PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-var exphbs = require("express-handlebars")
+const exphbs = require("express-handlebars")
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-var Handlebars = require("handlebars");
-var MomentHandler = require("handlebars.moment");
+const Handlebars = require("handlebars");
+const MomentHandler = require("handlebars.moment");
 MomentHandler.registerHelpers(Handlebars);
 
-var routes = require("./routes");
+const routes = require("./routes");
 app.use(routes)
 
 db.sequelize.sync().then(function () {
