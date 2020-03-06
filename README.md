@@ -12,4 +12,4 @@ DB_DATABASE=***enter the name for your database"
 
 **Web Tools:** HTML5, CSS3, Materialize, Javascript, Jquery, NodeJS, Express, Handlebars, MySQL with Sequelize.
 
-<img src="https://user-images.githubusercontent.com/40499942/64218448-ad9e7900-ce8f-11e9-8838-c4a8b7657b7d.jpg">
+<img src="https://user-images.githubusercontent.com/40499942/76122942-4dff6280-5fc5-11ea-97fc-51d1aab9f31e.jpg">
