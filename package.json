@@ -22,7 +22,7 @@
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
     "handlebars.moment": "^1.0.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.5",
     "sequelize": "^5.2.15"
